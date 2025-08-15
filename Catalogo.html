@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Catálogo — Arte Maya Gt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root{
+      --brown:#5a3e36;
+      --bg:#f7f3e6;
+      --text:#333;
+
+      --c-inicio:#5579aa;
+      --c-arte:#5d8f81;
+      --c-catalogo:#6f5a90;
+      --c-encuentranos:#5a8da1;
+      --c-contacto:#5a837c;
+
+      --btn:#5a3e36;        
+      --btn-hover:#7a5748;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background:#fffdf8; color:var(--text); line-height:1.6;
+      padding:0 .5rem; /* respirito en móviles */
+    }
+
+    header{ background:var(--bg); padding:1.25rem 0 1rem; text-align:center; }
+    header h1{ color:var(--brown); font-size:2.2rem; margin-bottom:.25rem; }
+    header .tagline{ color:#6b6b6b; margin-bottom:1rem; }
+
+    /* NAV en pastillas */
+    nav{ display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; padding:.25rem 1rem 0.75rem; }
+    .nav-btn{
+      display:inline-block; padding:.6rem 1.1rem; border-radius:14px; color:#fff; text-decoration:none; font-weight:700;
+      box-shadow:0 3px 8px rgba(0,0,0,.12); transition:transform .12s ease, filter .2s ease;
+    }
+    .nav-btn:hover{ transform:translateY(-1px); filter:brightness(1.06); }
+    .nav-inicio{ background:var(--c-inicio); }
+    .nav-arte{ background:var(--c-arte); }
+    .nav-catalogo{ background:var(--c-catalogo); }
+    .nav-encuentranos{ background:var(--c-encuentranos); }
+    .nav-contacto{ background:var(--c-contacto); }
+    .nav-btn.active{ outline:3px solid rgba(255,255,255,.9); }
+
+    main{ max-width:1100px; margin:1.25rem auto 2.5rem; padding:0 0.5rem; }
+    h2.page-title{ color:var(--brown); text-align:center; margin:0 0 1rem; }
+
+    /* Grid de productos */
+    .catalogo{
+      display:grid; gap:1.5rem;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .producto{
+      background:#fff; border-radius:16px;
+      box-shadow:0 10px 18px rgba(0,0,0,.08);
+      padding:1rem; text-align:center; transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .producto:hover{ transform:translateY(-4px); box-shadow:0 14px 24px rgba(0,0,0,.12); }
+
+    .producto img{
+      width:100%; border-radius:12px; margin-bottom:.75rem;
+      aspect-ratio: 16/9; object-fit:cover;
+      transition:transform .3s ease;
+    }
+    .producto img:hover{ transform:scale(1.03); }
+    .producto h3{ color:var(--brown); margin:.35rem 0; }
+    .precio{ font-weight:800; margin:.35rem 0 1rem; }
+
+    .btn{
+      display:inline-block; margin:.25rem .35rem; padding:.55rem 1.1rem;
+      background:var(--btn); color:#fff; text-decoration:none; border-radius:10px;
+      transition:background .2s ease, transform .12s ease;
+      box-shadow:0 3px 8px rgba(0,0,0,.12);
+      cursor:pointer; font-weight:600;
+    }
+    .btn:hover{ background:var(--btn-hover); transform:translateY(-1px); }
+
+    /* Modal */
+    .modal{
+      display:none; position:fixed; inset:0; z-index:1000;
+      background:rgba(0,0,0,.5);
+      align-items:center; justify-content:center; /* centrado */
+      padding:1rem;
+    }
+    .modal[aria-hidden="false"]{ display:flex; }
+    .modal-content{
+      background:#fff; border-radius:14px; max-width:420px; width:100%;
+      padding:1.25rem 1.25rem 1rem; position:relative;
+      box-shadow:0 18px 32px rgba(0,0,0,.25);
+    }
+    .close{
+      position:absolute; top:10px; right:14px; font-size:1.6rem; line-height:1; font-weight:800;
+      cursor:pointer; color:#333;
+    }
+    .modal-content h2{ color:var(--brown); text-align:center; margin-bottom:.8rem; }
+    .modal-content label{ display:block; margin:.5rem 0 .25rem; }
+    .modal-content input{
+      width:100%; padding:.6rem .7rem; border-radius:8px; border:1px solid #cfcfcf; margin-bottom:.35rem;
+    }
+    .modal-content button{
+      width:100%; padding:.7rem 1rem; border:none; border-radius:10px; font-size:1rem;
+      background:var(--btn); color:#fff; cursor:pointer;
+      transition:background .2s ease;
+    }
+    .modal-content button:hover{ background:var(--btn-hover); }
+
+    footer{ background:var(--bg); text-align:center; padding:1rem; margin-top:2rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Arte Maya Gt</h1>
+    <p class="tagline">“Un trocito de nuestra tierra, para tu corazón.”</p>
+    <nav>
+      <a class="nav-btn nav-inicio" href="index.html">Inicio</a>
+      <a class="nav-btn nav-arte" href="nuestro-arte.html">Nuestro Arte</a>
+      <a class="nav-btn nav-catalogo active" href="catalogo.html" aria-current="page">Nuestro Catálogo</a>
+      <a class="nav-btn nav-encuentranos" href="encuentranos.html">Encuéntranos</a>
+      <a class="nav-btn nav-contacto" href="contactanos.html">Contáctanos</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="page-title">Catálogo</h2>
+
+    <div class="catalogo">
+      <!-- Producto 1 -->
+      <article class="producto" data-nombre="Bolsas tejidas multicolor">
+        <img src="imagenes/Producto a la venta1.jpg" alt="Bolsas tejidas multicolor artesanales">
+        <h3>Bolsas tejidas multicolor</h3>
+        <p class="precio">Q40.00</p>
+        <a class="btn" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=example%40email.com&item_name=Bolsas%20tejidas%20multicolor&amount=40.00&currency_code=GTQ" target="_blank" rel="noopener">Comprar</a>
+        <a class="btn btn-apartar" role="button">Apartar</a>
+      </article>
+
+      <!-- Producto 2 -->
+      <article class="producto" data-nombre="Figuras de mimbre">
+        <img src="Imagenes/Artesania1.jpg" alt="Figuras de mimbre artesanales">
+        <h3>Figuras de mimbre</h3>
+        <p class="precio">Q35.00</p>
+        <a class="btn" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=example%40email.com&item_name=Figuras%20de%20mimbre&amount=35.00&currency_code=GTQ" target="_blank" rel="noopener">Comprar</a>
+        <a class="btn btn-apartar" role="button">Apartar</a>
+      </article>
+
+      <!-- Producto 3 -->
+      <article class="producto" data-nombre="Pulseras tejidas">
+        <img src="imagenes/Artesania3.jpg" alt="Pulseras tejidas artesanales de colores">
+        <h3>Pulseras tejidas</h3>
+        <p class="precio">Q50.00</p>
+        <a class="btn" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=example%40email.com&item_name=Pulseras%20tejidas&amount=50.00&currency_code=GTQ" target="_blank" rel="noopener">Comprar</a>
+        <a class="btn btn-apartar" role="button">Apartar</a>
+      </article>
+    </div>
+  </main>
+
+  <!-- Modal Apartar -->
+  <div id="modalApartar" class="modal" aria-hidden="true" aria-modal="true" role="dialog">
+    <div class="modal-content">
+      <span class="close" id="cerrarModal" aria-label="Cerrar">&times;</span>
+      <h2>Apartar producto</h2>
+      <form id="formApartar">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" required>
+
+        <label for="producto">Producto:</label>
+        <input type="text" id="producto" readonly>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Arte Maya Gt — Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Helpers modal
+    const modal = document.getElementById('modalApartar');
+    const inputProducto = document.getElementById('producto');
+
+    function abrirModal(nombre) {
+      inputProducto.value = nombre || '';
+      modal.setAttribute('aria-hidden','false');
+    }
+    function cerrarModal() {
+      modal.setAttribute('aria-hidden','true');
+    }
+
+    // Botones "Apartar"
+    const botonesApartar = document.querySelectorAll('.btn-apartar');
+    botonesApartar.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.producto');
+        // toma el nombre desde data-nombre; si no, desde el h3
+        const nombre = card?.dataset?.nombre || card.querySelector('h3')?.textContent.trim();
+        abrirModal(nombre);
+      });
+    });
+
+    document.getElementById('cerrarModal').addEventListener('click', cerrarModal);
+
+    // Cerrar al hacer click fuera del contenido
+    window.addEventListener('click', (e) => { if (e.target === modal) cerrarModal(); });
+
+    // Cerrar con ESC
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') cerrarModal(); });
+
+    // Envío del formulario
+    document.getElementById('formApartar').addEventListener('submit', function(e){
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const correo = document.getElementById('correo').value.trim();
+      const producto = inputProducto.value.trim();
+
+      // Notificación bonita
+      const msg = document.createElement('div');
+      msg.style.position = 'fixed';
+      msg.style.top = '20px';
+      msg.style.left = '50%';
+      msg.style.transform = 'translateX(-50%)';
+      msg.style.backgroundColor = 'var(--brown)';
+      msg.style.color = 'white';
+      msg.style.padding = '1rem 1.4rem';
+      msg.style.borderRadius = '10px';
+      msg.style.boxShadow = '0 6px 16px rgba(0,0,0,.25)';
+      msg.style.zIndex = '2000';
+      msg.textContent = `¡Gracias, ${nombre}! Apartaste “${producto}”. Te escribiremos a ${correo}.`;
+      document.body.appendChild(msg);
+
+      setTimeout(() => {
+        msg.style.transition = 'opacity .5s ease';
+        msg.style.opacity = '0';
+        setTimeout(() => msg.remove(), 520);
+      }, 3000);
+
+      cerrarModal();
+      this.reset();
+    });
+  </script>
+</body>
+</html>
+

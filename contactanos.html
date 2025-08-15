@@ -1,0 +1,175 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Arte Maya Gt — Contáctanos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Font Awesome para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      color: #333;
+      background-color: #fffdf8;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #f8f4e6;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #5a3e36;
+    }
+
+    /* Contenedor principal */
+    .contacto {
+      background: white;
+      padding: 2rem 1rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+
+    .contacto h2 {
+      color: #5a3e36;
+      margin-bottom: 0.5rem;
+    }
+
+    .contacto p {
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Botones principales */
+    .redes, .volver {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .btn-estilo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s, opacity 0.2s;
+    }
+
+    .btn-estilo:hover {
+      transform: translateY(-5px) scale(1.05);
+      opacity: 0.95;
+    }
+
+    /* Colores */
+    .facebook { background-color: #3b5998; }
+    .instagram { background-color: #e1306c; }
+    .correo { background-color: #6a1b9a; }
+    .volver-btn { background-color: #d2691e; }
+
+    .btn-estilo i { font-size: 1rem; }
+
+    /* Caja de copiar correo */
+    .copy-container {
+      margin-top: 10px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 5px;
+    }
+
+    .copy-input {
+      padding: 5px; 
+      border-radius: 5px; 
+      border: 1px solid #ccc; 
+      width: 260px; 
+      text-align: center; 
+      font-size: 0.9rem;
+    }
+
+    .copy-btn {
+      background-color: #6a1b9a; 
+      color: white; 
+      border: none; 
+      padding: 6px 10px; 
+      border-radius: 5px; 
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #f8f4e6;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Arte Maya Gt</h1>
+    <p>“Un trocito de nuestra tierra, para tu corazón.”</p>
+  </header>
+
+  <section class="contacto">
+    <h2>Contáctanos</h2>
+    <p>Puedes comunicarte con nosotros a través de nuestras redes sociales o por correo electrónico:</p>
+
+    <div class="redes">
+      <a href="https://www.facebook.com/AlyGr3035/" target="_blank" class="btn-estilo facebook">
+        <i class="fab fa-facebook-f"></i> Facebook
+      </a>
+      <a href="https://www.instagram.com/aly_gr35/" target="_blank" class="btn-estilo instagram">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=alysonrodriguez3005@gmail.com" 
+         target="_blank" class="btn-estilo correo">
+        <i class="fas fa-envelope"></i> Correo
+      </a>
+    </div>
+
+    <!-- Caja para copiar correo -->
+    <div class="copy-container">
+      <input type="text" value="alysonrodriguez3005@gmail.com" id="correoTexto" 
+             readonly class="copy-input">
+      <button onclick="copiarCorreo()" class="copy-btn">Copiar</button>
+    </div>
+
+    <!-- Botón para volver -->
+    <div class="volver">
+      <a href="index.html" class="btn-estilo volver-btn">
+        <i class="fas fa-arrow-left"></i> Volver a la página principal
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Arte Maya Gt — Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function copiarCorreo() {
+      var copyText = document.getElementById("correoTexto");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); // Para móviles
+      document.execCommand("copy");
+      alert("Correo copiado: " + copyText.value);
+    }
+  </script>
+
+</body>
+</html>

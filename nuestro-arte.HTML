@@ -1,0 +1,122 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Arte Maya Gt — Nuestro Arte</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root { --brown:#5a3e36; --bg:#f8f4e6; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      color: #333;
+      background-color: #fffdf8;
+      line-height: 1.6;
+    }
+    header { background: var(--bg); padding: 1rem; text-align:center; }
+    .eslogan {
+      font-style: italic;
+      margin-bottom: .5rem;
+      color: #444;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .5rem;
+    }
+    nav a {
+      color: white;
+      padding: .5rem 1rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    nav a:nth-child(1) { background-color: #466799; } /* Inicio */
+    nav a:nth-child(2) { background-color: #628c81; } /* Nuestro Arte */
+    nav a:nth-child(3) { background-color: #6f6492; } /* Nuestro Catálogo */
+    nav a:nth-child(4) { background-color: #3d7196; } /* Encuéntranos */
+    nav a:nth-child(5) { background-color: #537d7d; } /* Contáctanos */
+
+    /* Hover más oscuros */
+    nav a:nth-child(1):hover { background-color: #35507a; }
+    nav a:nth-child(2):hover { background-color: #4d6f66; }
+    nav a:nth-child(3):hover { background-color: #584f75; }
+    nav a:nth-child(4):hover { background-color: #2e5774; }
+    nav a:nth-child(5):hover { background-color: #406262; }
+
+    .banner {
+      background: url('imagenes/banner.jpg') center/cover no-repeat;
+      padding: 3rem 1rem;
+      border-top: 1px solid #e1d8c7;
+      border-bottom: 1px solid #e1d8c7;
+      text-align:center;
+    }
+    .banner h1 {
+      margin:0; 
+      color: white; 
+      font-size: 2.5rem; 
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+    }
+    main { max-width: 1000px; margin: 1rem auto; padding: 0 1rem; }
+    .intro { margin-bottom: 1.25rem; }
+    .galeria { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .galeria img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .galeria img:hover { transform: scale(1.05); }
+    figure { margin:0; }
+    figcaption { text-align: center; font-size: .9rem; margin-top: .4rem; color: #555; }
+    footer { background: var(--bg); text-align:center; padding:1rem; margin-top:2rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="eslogan">“Un trocito de nuestra tierra, para tu corazón.”</p>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="nuestro-arte.html">Nuestro Arte</a>
+      <a href="catalogo.html">Nuestro Catálogo</a>
+      <a href="encuentranos.html">Encuéntranos</a>
+      <a href="contactanos.html">Contáctanos</a>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <h1>Nuestro Arte</h1>
+  </section>
+
+  <main>
+    <p class="intro">
+      En <strong>Arte Maya Gt</strong> transformamos tradición en arte vivo: cada pieza está hecha a mano por artesanos guatemaltecos que preservan nuestras raíces con pasión y creatividad. Más que un producto, llevamos a tu hogar una historia que decora, inspira y conecta con el alma de nuestra tierra.
+    </p>
+
+    <div class="galeria">
+      <figure>
+        <img src="imagenes/Artesania2.jpg" alt="Artesanías guatemaltecas: textiles y bordados" loading="lazy">
+        <figcaption>Artesanías — textiles y bordados.</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/Artesania4.jpg" alt="Diseños únicos inspirados en la cultura Maya" loading="lazy">
+        <figcaption>Diseños únicos para eventos.</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/Eventos1.jpg" alt="Exposición en evento cultural" loading="lazy">
+        <figcaption>Presencia en eventos culturales.</figcaption>
+      </figure>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Arte Maya Gt — Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
